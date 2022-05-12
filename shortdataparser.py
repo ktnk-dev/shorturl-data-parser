@@ -6,7 +6,7 @@ def get(id):
         url = x.url.replace("http://", "").replace("https://", "") # убираем протокол
         url = url.split("/") #  делим полученную из запроса ссылку на знаки /
         url[0] = "" # как правило, первый элемент - доменное имя. его мы сносим
-        return str("".join(url))   # получаем данные в виде текста
+        return str("/".join(url))[1:]  # получаем данные в виде текста
     
     except Exception as e:
         if "ConnectionError" in str(e):  # если домен, который мы сократили, НЕ существует
